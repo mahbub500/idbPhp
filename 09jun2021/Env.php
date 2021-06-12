@@ -7,5 +7,15 @@
 </head>
 <body>
 	
+	<?php
+
+	echo"<pre>";
+	$arr=getenv();
+	foreach ($arr as $k => $v) {
+		
+	echo "$k = $v <br>";	
+	}
+
+	 ?>
 </body>
 </html>
