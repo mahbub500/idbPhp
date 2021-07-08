@@ -1,0 +1,21 @@
+{
+    "name": "mahbu/15_auto-load",
+    "autoload": {
+        "psr-4": {
+            "Mahbu\\15AutoLoad\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "mahbub500",
+            "email": "mahbubmr500@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+        "psr-4":{
+
+            "app\\":"./app"
+        }
+    }
+}
