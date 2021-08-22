@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+  <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <h3>On mouse hover on image will be change</h3>
+          <button type="button" id="show" class="btn mt-5 btn-primary">Show</button>
+          <button type="button" id="hide" class="btn mt-5 btn-primary">Hide</button>
+          <button type="button" id="card" class="btn mt-5 btn-primary">Show or Hide this card</button>
+
+          <div class="col-md-6 col-sm-6">
+              <div class="card" id="card1" style="width: 18rem;">
+              <img class="card-img-top" id="cardImg" src="pexels-pixabay-220453.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+            </div>
+
+          <h1 id="heading"></h1>
+        </div>
+
+        
+      </div>
+  </div>
+
+    <!-- Optional JavaScript -->
+
+      <script>
+$(document).ready(function(){
+  $("#cardImg").hover(function(){
+      $("#cardImg").attr("src", "marguerite-729510.jpg");
+  });
+  $("#cardImg").mouseout(function(){
+    var x = $('#cardImg').attr('src');
+    // alert($('#myimg').attr('src'));
+    alert(x);
+      $("#cardImg").attr("src","x");
+  });
+ 
+});
+</script>
+    
+  </body>
+</html>

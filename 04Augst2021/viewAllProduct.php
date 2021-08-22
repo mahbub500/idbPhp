@@ -1,10 +1,12 @@
 <?php 
+
+
 $mysqli = @new mysqli("localhost", "root", "", "wdp_company");
 
 if($mysqli->connect_errno){
-	echo "Database Connection Problem<br>";
-	echo $mysqli->connect_error;
-	exit();
+  echo "Database Connection Problem<br>";
+  echo $mysqli->connect_error;
+  exit();
 }
 
  ?>
@@ -21,49 +23,58 @@ if($mysqli->connect_errno){
     <title>Manufacturers </title>
   </head>
   <body>
-  	<?php 
-  	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    <?php 
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       $id = $_POST['company'];
-  	   
+       
      
-  		$sql = "DELETE FROM `manufacture` WHERE `manufacture`.`ID` = '$id'";
-  		$result = $mysqli->query($sql);
+      $sql = "DELETE FROM `manufacture` WHERE `manufacture`.`ID` = '$id'";
+      $result = $mysqli->query($sql);
   if ($mysqli->affected_rows) {
     echo " Manufacture Deleted Success Fully ";
   }
-}
+      
+      
+      
+    }
 
-  	 ?>
+     ?>
     <div class="container">
-    	<div class="row">
-    		<div class="col-md-6">
-    <h1>List of all Manufacturers </h1>
-   <form action=" <?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-    <div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" name="company" id="exampleFormControlSelect1">
-     
-      <option>Select One </option>
-        <?php 
-      $sql = " SELECT * FROM `manufacture` ORDER BY `adress` ASC ";
-      $result = $mysqli->query($sql);
-      $finals = $result->fetch_assoc();      
+      <div class="row">
+        
+          <h1>List of All Product those are between 200 and 400 </h1>
+        <div class="col-md-6">
+          <table class="table">
+      <?php 
+      $sql = "SELECT * FROM `sproduct`";
+      $products = $mysqli->query($sql);
+      // $products = $result->fetch_assoc();      
+      // var_dump($products);
+        ?>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Sl No</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <?php $sl= 1; ?>
+    <?php foreach ( $products as  $product) { ?>
+    <tr>                      
+      <th scope="row"> <?php echo $product['ID']; ?> </th>
+      <th scope="row"> <?php echo $product['name']; ?> </th>
+      <th scope="row"> <?php echo $product['price']; ?> </th>
+      
+    </tr>
+    <?php } ?>
+  </tbody>
+</table>
 
-      foreach ( $result as  $final) {    ?>
-      <option value="<?php echo  $final['ID'];  ?>"> 
-      <?php     echo  $final['name']; ?>
-     </option>
-   <?php   }         ?>
-      
-      
-    </select>
-  </div>
-    
-  <button type="submit" name="submit" class="btn btn-primary">Delete</button>
-  </form>
-    		</div>
-    	</div>
+        </div>
+      </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

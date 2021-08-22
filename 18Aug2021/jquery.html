@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+   <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <button type="button" id="hide" class="btn mt-5 btn-primary">Hide</button>
+          <button type="button" id="show" class="btn mt-5 btn-primary">Show</button>
+          <button type="button" id="card" class="btn mt-5 btn-primary">Show or Hide this card</button>
+
+          <p >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus maxime amet ex libero fugit illum doloremque placeat, aspernatur dignissimos, saepe qui reprehenderit asperiores, distinctio ipsa.</p>
+
+          <div class="row">
+            <div class="col-md-6 col-sm-6">
+              <div class="card" id="card1" style="width: 18rem;">
+              <img class="card-img-top" src="pexels-pixabay-220453.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+            </div>
+             <div class="col-md-6">
+              <div class="card" id="card1" style="width: 18rem;">
+              <img class="card-img-top" src="pexels-pixabay-220453.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+           <button type="button" id="text" class="btn mt-5 ml-2  btn-primary">Show text</button>
+          <button type="button" id="html" class="btn mt-5 ml-2 btn-primary">Show Html</button>
+          <button type="button" id="value" class="btn mt-5 ml-2 btn-primary">Change Value</button>
+
+          <h3 class="ml-2" id="test1">Hello This is by jQuery </h3>
+          <h3 class="ml-2" id="test2">Hello This is HTML by jQuery </h3>
+          <p class="ml-2">Input field: <input type="text" id="test3" value="Mickey Mouse"></p>
+
+          <form action="">
+      
+      <input id="first_name" type="text " name="FirstName">
+      <input type="text "  id="lastName"name="lastName">
+      <button id="button" type="submit"> submit </button>
+     </form>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+
+      <script>
+$(document).ready(function(){
+  $("#button").click(function(){
+    // var fn = $("#first_name").val();
+    var First =$("input[name='FirstName']").val();
+    var last =$("input[name='lastName']").val();
+    var FullName = "Hi " + First +" "+ last;
+    alert( FullName );
+
+  });
+
+  $("#hide").click(function(){
+    $("p:first").hide(1000);
+  });
+
+   $("#show").click(function(){
+    $("p:first").show(1000);
+  });
+
+   $("#card").click(function(){
+    $("#card1").toggle(1000);
+  });
+
+   $("#text").click(function(){
+    $("#test1").text("This text is changed by jQery");
+   });
+   $("#html").click(function(){
+    $("#test2").html("<b>Hello world!</b>");
+   });
+   $("#value").click(function(){
+    $("#test3").val("Hi how are you");
+   });
+});
+</script>
+    
+  </body>
+</html>

@@ -19,7 +19,23 @@ if($mysqli->connect_errno){
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <style>
+      .valid{
+            height: 52px;
+          border: 3px solid green;
+          width: 220px;
+          font-size: xx-large;
+          color: black;  
+         }
+          .invalid{
+            height: 52px;
+          border: 3px solid red;
+          width: 220px;
+          font-size: xx-large;
+          color: black; 
+          margin: 0 auto; 
+         }
+    </style>
     <title>Hello, world!</title>
   </head>
   <body>
@@ -29,18 +45,49 @@ if($mysqli->connect_errno){
   		$sql= " SELECT * FROM users WHERE user='$userName' AND  users_password ='$password' ";
   		$result = $mysqli->query($sql);
   		$final = $result->num_rows;
-  		if ($final == 1) {
-  		  		echo " Ok ";
+
+  		if ($final == 1) { 
+  		  echo" <div class=\"container\">
+       <div class=\"row\">
+         <div class=\"col-md-6\">
+           <div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">
+  <strong>Congratulations!  </strong> All of your your credentials are match
+  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+    <span aria-hidden=\"true\">&times;</span>
+  </button>
+</div>
+         </div>
+       </div>
+     </div> ";
+
   		}else{
-  		echo " Good Bye ";
+  
+    echo" <div class=\"container\">
+       <div class=\"row\">
+         <div class=\"col-md-6\">
+           <div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">
+  <strong>User or password </strong> You should check check your unser name of password.
+  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+    <span aria-hidden=\"true\">&times;</span>
+  </button>
+</div>
+         </div>
+       </div>
+     </div> ";
+
+
   	}
   		
   	}
 
   	 ?>
+
+     
     <div class="container">
     	<div class="row">
     		<div class="col-md-6">
+         
+
     <h1>Hello, world!</h1>
    <form action=" <?php echo $_SERVER['PHP_SELF'] ?>" method="post">
   <div class="form-group">

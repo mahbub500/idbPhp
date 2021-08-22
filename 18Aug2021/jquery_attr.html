@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+  <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <button type="button" id="show" class="btn mt-5 btn-primary">Show</button>
+          <button type="button" id="hide" class="btn mt-5 btn-primary">Hide</button>
+          <button type="button" id="card" class="btn mt-5 btn-primary">Show or Hide this card</button>
+
+          <p title="This is my paragraph ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus maxime amet ex libero fugit illum doloremque placeat, aspernatur dignissimos, saepe qui reprehenderit asperiores, distinctio ipsa. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam, corporis consequatur quibusdam exercitationem ullam provident voluptatum facilis minima, doloribus nostrum laborum! Beatae, dolores. Beatae illo distinctio omnis, magnam porro quibusdam harum eaque dolor architecto eligendi fugit quis, error quos rerum libero provident ipsa nulla consequuntur sit maiores ex. Quo?</p>
+
+          <h1 id="heading"></h1>
+        </div>
+
+        
+      </div>
+  </div>
+
+    <!-- Optional JavaScript -->
+
+      <script>
+$(document).ready(function(){
+  $("#show").click(function(){
+var x =   $("p").attr("title");
+ $("#heading").text(x);
+  });
+ 
+});
+</script>
+    
+  </body>
+</html>
