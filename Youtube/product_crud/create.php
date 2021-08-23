@@ -3,16 +3,23 @@
 $pdo = new PDO('mysql:host=localhost;port=3306;dbname=product','root','');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+<<<<<<< HEAD
 // echo "<pre>";
 // var_dump ($_FILES['image']);
 // echo "</pre>";
 
+=======
+echo "<pre>";
+var_dump ($_FILES['image']);
+echo "</pre>";
+>>>>>>> 8eca87354798a4ea7bce39927ce485445e17c855
 // $statement = $pdo->prepare('SELECT * FROM `product_crud` ORDER BY `crate_date` DESC');
 // $statement->execute();
 // $products = $statement->fetchAll(PDO::FETCH_ASSOC);
 // echo "<pre>";
 // var_dump($_GET);
 $errors=[];
+<<<<<<< HEAD
 $title = '';
 $price = '';
 $descriptiion = '';
@@ -20,18 +27,31 @@ $descriptiion = '';
 
 
 if ($_SERVER['REQUEST_METHOD']=='POST') {
+=======
+$title = [];
+$price = [];
+$descriptiion = [];
+if ($_SERVER['REQUEST_METHOD']=='POST') {
+	
+>>>>>>> 8eca87354798a4ea7bce39927ce485445e17c855
 
 $title = $_POST['title'];
 $descriptiion = $_POST['descriptiion'];
 $price = $_POST['price'];
 // $date = date("d-m-y h:i:s");
 $date = $_POST['date'];
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 8eca87354798a4ea7bce39927ce485445e17c855
 if (!$title) {
 	$errors[] = 'Title Required<br>';
 }
 if (!$price) {
 	$errors[] = 'Price Required<br>';
 }
+<<<<<<< HEAD
 // make images directory
 if (!is_dir('images')) {
 	mkdir('images');
@@ -45,15 +65,23 @@ if (empty($errors)) {
  	move_uploaded_file($image['tmp_name'],$imagePath);
  }
   
+=======
+if (empty($errors)) {
+>>>>>>> 8eca87354798a4ea7bce39927ce485445e17c855
 
 
 $statement =$pdo->prepare("INSERT INTO `product_crud` ( `Title`, `descriptiion`, `image`, `price`, `crate_date`) VALUES (:title,:descriptiion,:image,:price,:date)");
 $statement->bindValue(':title',$title);
+<<<<<<< HEAD
 $statement->bindValue(':image',$imagePath);
+=======
+$statement->bindValue(':image','');
+>>>>>>> 8eca87354798a4ea7bce39927ce485445e17c855
 $statement->bindValue(':descriptiion',$descriptiion);
 $statement->bindValue(':price',$price);
 $statement->bindValue(':date',$date);
 $statement->execute();
+<<<<<<< HEAD
 header('location: product.php');
 }
 }
@@ -70,13 +98,24 @@ function randomString($n){
 }
  ?>
 
+=======
+}
+}
+ ?>
+
+
+>>>>>>> 8eca87354798a4ea7bce39927ce485445e17c855
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">  
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
 	<title>Crate Product</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+=======
+	<title>Create Product </title>
+>>>>>>> 8eca87354798a4ea7bce39927ce485445e17c855
 </head>
 <body>
 <?php if (!empty($errors)):?>
@@ -85,6 +124,7 @@ function randomString($n){
 	<?php endforeach; ?>
 <?php endif; ?>
 
+<<<<<<< HEAD
 	
 
 
@@ -121,6 +161,19 @@ function randomString($n){
 		</div>
 	</div>
 </div>
+=======
+	<h3>Create Product </h3>
+
+<form action="" method="post" enctype="multipart/form-data">
+	<input type="text" name="title" value="<?php echo $title ?>" placeholder="title here"><br>
+	<textarea name="descriptiion"  id="" cols="10" rows="10"><?php echo $descriptiion ?></textarea> <br>
+	<!-- <input type="text" placeholder="description here" name="descriptiion"><br> -->
+	<input type="file" name="image"><br>
+	<input type="text" step=".01" value="<?php echo $price ?>" placeholder="price here" name="price"><br>
+	<input type="date"  name="date"><br>
+	<input type="submit"  > <br>
+</form>
+>>>>>>> 8eca87354798a4ea7bce39927ce485445e17c855
 	
 </body>
 </html>
